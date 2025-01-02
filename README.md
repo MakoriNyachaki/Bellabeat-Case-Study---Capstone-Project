@@ -220,7 +220,7 @@ activity_sleep %>%
   geom_smooth() + labs(title = "Sedentary Minutes VS Asleep Minutes")
 
 ```
-!["Sedentary Mins VS Time Asleep"]("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/imgs/sedentary_mins_vs_asleep.png")
+![Sedentary Mins VS Time Asleep]("./Bellabeat-Case-Study---Capstone-Project/imgs/sedentary_mins_vs_asleep.png")
 
 **_Observation_** 
 
