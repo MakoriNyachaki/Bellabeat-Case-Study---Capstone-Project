@@ -10,19 +10,21 @@ library(janitor)
 
 
 # Creating data tables and getting their secifications
-activities <- read_csv("/cloud/project/bellabeat_1/dailyActivity_merged.csv");
+# ~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1
+# /cloud/project/bellabeat_1
+activities <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/dailyActivity_merged.csv");
 
 # sleep
-sleep <- read_csv("/cloud/project/bellabeat_1/sleepDay_merged.csv");
+sleep <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/sleepDay_merged.csv");
 
 # Calories
-calories <- read_csv("/cloud/project/bellabeat_1/hourlyCalories_merged.csv");
+calories <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/hourlyCalories_merged.csv");
 
 # weigth
-weight <- read_csv("/cloud/project/bellabeat_1/weightLogInfo_merged.csv");
+weight <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/weightLogInfo_merged.csv");
 
 # intensities
-intensities <- read_csv("/cloud/project/bellabeat_1/hourlyIntensities_merged.csv")
+intensities <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/hourlyIntensities_merged.csv")
 
 
 
@@ -56,6 +58,8 @@ sleep$SleepDay <- parse_date_time(sleep$SleepDay, orders = "%m/%d/%Y %H:%M:%S %p
 sleep$date <- format(sleep$SleepDay, format("%m/%d/%Y"))
 
 calories$ActivityHour <- parse_date_time(calories$ActivityHour, orders = "%m/%d/%Y %H:%M:%S %p")
+calories$date <- format(calories$ActivityHour, format("%m/%d/%Y"))
+calories$time <- format(calories$ActivityHour, format("%H:%M:%S"))
 
 activities$ActivityDate <- parse_date_time(activities$ActivityDate, orders = "%m/%d/%Y")
 activities$date <- format(activities$ActivityDate, format("%m/%d/%Y"))
@@ -65,6 +69,8 @@ intensities$date <- format(intensities$ActivityHour, format("%m/%d/%Y"))
 intensities$time <- format(intensities$ActivityHour, format("%H:%M:%S"))
 
 weight$Date <- parse_date_time(weight$Date, orders = "%m/%d/%Y %H:%M:%S %p")
+weight$date <- format(weight$Date, format("%m/%d/%Y"))
+weight$time <- format(weight$Date, format("%H:%M:%S"))
 
 
 # Clean column names
@@ -148,6 +154,11 @@ activities %>%
 
 #merging data
 activity_sleep <- merge(sleep, activities, by=c('id', 'date'))
+calories_weight <- merge(weight, calories, by = 'id')
+
+calories_weight %>% 
+  group_by(id) %>% 
+  summarise(weight_kg = mean(weight_kg), calories = mean(calories))
 
 activity_sleep %>% 
   ggplot(mapping = aes(x=total_minutes_asleep, y=sedentary_minutes)) + geom_point(stat = "identity", fill="green") +

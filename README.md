@@ -1,10 +1,4 @@
-## Bellabeat Case Study
----
-title: "Bellabeat Data Analysis Case Study"
-author: "Makori Nyachaki"
-date: "2024-12-30"
-output: html_document
----
+## Bellebeat Case Study Data Analysis
 
 ## Introduction
 Bellabeat is a _Smart Device_ manufacturer for women's smart devices. These are health wellness wearable used to track physical activity, sleep, stress, menstrual cycle and mindful habits. Bellabeat is a successful start up with the ability to growing to becoming a global company. The Chief Creative Officer and co-founder of Bellabeat Urška Sršen, believes that analyzing the available data on smart devices will help identify usage trends and patterns that will help the company identify expansion and growth opportunities and design a better marketing strategy.
@@ -54,15 +48,17 @@ v. sleep - imported from sleepDay_merged.csv file
 _*Note:* All the files are in the bellabeat 1 folder which are the most current_
 ```{r}
 # Creating data tables and getting their secifications
-activities <- read_csv("/cloud/project/bellabeat_1/dailyActivity_merged.csv")
+# ~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1
+# /cloud/project/bellabeat_1
+activities <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/dailyActivity_merged.csv")
 # Calories
-calories <- read_csv("/cloud/project/bellabeat_1/hourlyCalories_merged.csv")
+calories <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/hourlyCalories_merged.csv")
 # intensities
-intensities <- read_csv("/cloud/project/bellabeat_1/hourlyIntensities_merged.csv")
+intensities <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/hourlyIntensities_merged.csv")
 # sleep
-sleep <- read_csv("/cloud/project/bellabeat_1/sleepDay_merged.csv")
+sleep <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/sleepDay_merged.csv")
 # weigth
-weight <- read_csv("/cloud/project/bellabeat_1/weightLogInfo_merged.csv")
+weight <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/weightLogInfo_merged.csv")
 ```
 
 I used the spec(), and head functions to check on the dataset specifications and viewing its structure.
@@ -225,7 +221,16 @@ activity_sleep %>%
 
 ```
 
-**_Observation:_** As sedentary active minutes increase the total minutes asleep decrease and the majority of the People have almost a balanced time for being asleep and time for being sedentary active except for a few cases. This portrays a negative correlation and since the more people are sedentary active the less time they are asleep.
+**_Observation_** 
+
+- As sedentary active minutes increase the total minutes asleep decrease and the majority of the People have almost a balanced time for being asleep and time for being sedentary active except for a few cases. This portrays a negative correlation and since the more people are sedentary active the less time they are asleep. 
+- Too much sitting without any activity is in itself an health risk.
+
+- Therefore there is a need to monitor the time spent on sedentary activities like sleeping, sitting, reclining which need reduction. Bellabeat products should be able to monitor this accurately and give reliable data to the use ensuring the well-being of the user and efficient management of time in other activities.
+
+- However, this is a challenge to the women who are employed and in jobs which require too much sitting.
+
+- Bellabeat should make their products flexible in recording such activities and be able to recommend the best time for any other physical activity before or beyond the working hours.
 
 **_Comparisons between the total steps and calories_**
 
@@ -258,7 +263,7 @@ hourly_int <- intensities %>%
   summarise(avg_inte = mean(total_intensity))
 ```
 
-Then we visualze the data usin an histogram to view the hourly insity as it compares through each hour of the day and know the time when the customers are most active.
+Then we visualize the data using a histogram to view the hourly intensity as it compares through each hour of the day and know the time when the customers are most active.
 ```{r}
 hourly_int %>% 
   ggplot(mapping = aes(x=time, y = avg_inte)) + geom_histogram(stat = "identity", fill = "darkgreen") + 
@@ -270,7 +275,7 @@ hourly_int %>%
 **_Observation:_** From the histogram we find out that majority of the customers are very active as from 0500hrs to 2300 hrs. Intensity increases as time goes by through the day with its peak being between 1700hrs - 1900hrs before it begins to go down. Between 0000hrs - 0400hrs there is minimal activity, and therefore, reduced intensity.
 
 ## Target Audience
-The target audience for the high-tech products from Bellabeat is Women who are working. The products are use to track activities, sleep, stress, mindfulness ensuring the health well-being of these women. The report will be presented to the Executive of Bellabet Company which include the Chief Creative Officer and co-founder Urška Sršen, Sando Mur who is the Mathematician and co-founder, and the marketing analytics team.
+The target audience for the high-tech products from Bellabeat is Women who are working. The products are use to track activities, sleep, stress, mindfulness ensuring the health well-being of these women. The women are always those working in offices and they sit for long hours and time. It is good for them to keep track of their activities both at work and out of work to be able to manage time efficiently in doing other physical activities including walking and even at the gym. They will be able to track the intensity and time for each activity.
 
 ## Products
 Bellabeats products are the Bellabeat app which is connected with every product Bellabeat and is used to receive data collected from the other wearbles. We have the Leaf which is an innovative product that can either be a necklace, bracelet, or clip. It is fixed with a tracker which is used for tracking user activity, sleep, and stress. We have smart watch used to track all these mentioned activities and relay the data to the APP. Spring which is a water bottle that is used to track daily water intake to ensure that the user is well hydrated. 
@@ -284,3 +289,8 @@ Bellabeat being a high-tech global company has a potential for growth to becomin
 Bellabeat APP is more than receiving data from all the other products. It can be used to achieve more than it was intended to.
 1. The app can be used to set reminders to remind users when they become inactive, or when to undertake a certain activity since from the observations above we found out that the average sedentary active time is 991.2 minute which is almost 17 hrs more than two-thirds of a day. 
 2. Can set notifications which will be part of the reminders more especially after identifying your trends and when you are most active to keep you on toes. Forexample a notification when your most active time approaches. Also the notifications can be used to alert you when something is wrong or your have by-passed an activity.
+3. In addition to the produscts Bellabeat should consider having their watches be used to track down the heart rate. This is very important in keeping an eye on the heartrate of the user.
+
+## Referrence
+
+1. Healy, G. N., Clark, B. K., Winkler, E. A., Gardiner, P. A., Brown, W. J., & Matthews, C. E. (2011). Measurement of adults' sedentary time in population-based studies. American journal of preventive medicine, 41(2), 216-227.
