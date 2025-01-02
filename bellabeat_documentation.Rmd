@@ -218,7 +218,7 @@ head(activity_sleep)
 ```
 
 ## Visualization
-**_Comparisons between the time asleep and sedantay active minutes_**
+**_Comparisons between the time asleep and sedentary active minutes_**
 ```{r}
 activity_sleep %>% 
   ggplot(mapping = aes(x=total_minutes_asleep, y=sedentary_minutes)) + geom_point(stat = "identity") +

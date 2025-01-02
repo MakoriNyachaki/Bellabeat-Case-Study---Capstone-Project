@@ -213,14 +213,14 @@ head(activity_sleep)
 ```
 
 ## Visualization
-**_Comparisons between the time asleep and sedantay active minutes_**
+**_Comparisons between the time asleep and sedentary active minutes_**
 ```{r}
 activity_sleep %>% 
   ggplot(mapping = aes(x=total_minutes_asleep, y=sedentary_minutes)) + geom_point(stat = "identity") +
   geom_smooth() + labs(title = "Sedentary Minutes VS Asleep Minutes")
 
 ```
-![Sedentary Mins VS Time Asleep](imgs/sedentary_mins_vs_asleep.png)
+![Sedentary Mins VS Time Asleep](imgs/sedentary_mins_vs_asleep_mins.png)
 
 **_Observation_** 
 
@@ -240,6 +240,7 @@ activity_sleep %>%
   ggplot(mapping = aes(x = total_steps, y = calories)) + geom_point(stat = "identity") + geom_smooth() +
   labs(title = "Calories vs Total Steps")
 ```
+![calories vs total steps](imgs/calories_vs_total_steps.png)
 
 **_Observation:_** As the number of steps increase the number of calories burnt increases. This is true since the more we walk the more number of calories are oxidized to release energy.
 
@@ -251,6 +252,8 @@ sleep %>%
 ```
 
 **_Observation:_** We observe that the more time one stays on bed the more likelihood it is for him to be asleep. This a positive correlation.
+
+![time in bed vs time asleep](imgs/mins_in_bed_vs_asleep_mins.png)
 
 **_Hourly Intensity_**
 First we create a table to hold the data that we will use for this visualization;
@@ -271,7 +274,7 @@ hourly_int %>%
   theme(axis.text.x = element_text(angle = 90)) +
   labs(title = "Hourly Intensity", x="Time (24 hour)", y="Average intensity")
 ```
-
+![hourly intensity](imgs/hourly_int.png)
 
 **_Observation:_** From the histogram we find out that majority of the customers are very active as from 0500hrs to 2300 hrs. Intensity increases as time goes by through the day with its peak being between 1700hrs - 1900hrs before it begins to go down. Between 0000hrs - 0400hrs there is minimal activity, and therefore, reduced intensity.
 
