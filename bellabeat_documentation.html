@@ -398,15 +398,43 @@ visualization:</p>
 install.packages(&quot;tidyverse&quot;)</code></pre>
 <pre><code>## Installing package into &#39;/home/makori/R/x86_64-pc-linux-gnu-library/4.3&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: unable to access index for repository https://cloud.r-project.org/src/contrib:
+##   cannot open URL &#39;https://cloud.r-project.org/src/contrib/PACKAGES&#39;</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <pre class="r"><code>install.packages(&quot;lubridate&quot;)</code></pre>
 <pre><code>## Installing package into &#39;/home/makori/R/x86_64-pc-linux-gnu-library/4.3&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: unable to access index for repository https://cloud.r-project.org/src/contrib:
+##   cannot open URL &#39;https://cloud.r-project.org/src/contrib/PACKAGES&#39;</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <pre class="r"><code>install.packages(&quot;dplyr&quot;)</code></pre>
 <pre><code>## Installing package into &#39;/home/makori/R/x86_64-pc-linux-gnu-library/4.3&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: unable to access index for repository https://cloud.r-project.org/src/contrib:
+##   cannot open URL &#39;https://cloud.r-project.org/src/contrib/PACKAGES&#39;</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <pre class="r"><code>install.packages(&quot;magrittr&quot;)</code></pre>
 <pre><code>## Installing package into &#39;/home/makori/R/x86_64-pc-linux-gnu-library/4.3&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: unable to access index for repository https://cloud.r-project.org/src/contrib:
+##   cannot open URL &#39;https://cloud.r-project.org/src/contrib/PACKAGES&#39;</code></pre>
+<pre><code>## Warning: package &#39;magrittr&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <pre class="r"><code># Load
 library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -857,7 +885,7 @@ are merged together</p>
 </div>
 <div id="visualization" class="section level2">
 <h2>Visualization</h2>
-<p><strong><em>Comparisons between the time asleep and sedantay active
+<p><strong><em>Comparisons between the time asleep and sedentary active
 minutes</em></strong></p>
 <pre class="r"><code>activity_sleep %&gt;% 
   ggplot(mapping = aes(x=total_minutes_asleep, y=sedentary_minutes)) + geom_point(stat = &quot;identity&quot;) +

@@ -26,6 +26,9 @@ weight <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Caps
 # intensities
 intensities <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/hourlyIntensities_merged.csv")
 
+# heartrate
+heartrate <- read_csv("~/Desktop/projects_data_analysis/Bellabeat-Case-Study---Capstone-Project/bellabeat_1/heartrate_seconds_merged.csv")
+
 
 
 # Specs
@@ -34,6 +37,7 @@ spec(sleep);
 spec(calories);
 spec(weight);
 spec(intensities);
+spec(heartrate)
 
 # Check to ensure how many clients you have 
 # From the data we are told we have about 30 customers who willing gave out their information
@@ -43,6 +47,7 @@ n_distinct(activities$Id)
 n_distinct(calories$Id)
 n_distinct(weight$Id)
 n_distinct(intensities$Id)
+n_distinct(heartrate$Id)
 
 
 # View the table structures
